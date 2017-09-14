@@ -1,0 +1,21 @@
+{
+  "name": "operation-dolittle",
+  "version": "0.0.1",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack --watch",
+    "build": "webpack",
+    "view": "cd wwwroot && lite-server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "https://github.com/rook512/operation-dolittle.git",
+  "author": "Seth DeKrey",
+  "license": "MIT",
+  "dependencies": {
+    "lite-server": "^2.3.0",
+    "ts-loader": "^2.3.7",
+    "typescript": "^2.5.2",
+    "webpack": "^3.5.6",
+    "webpack-dev-server": "^2.8.1"
+  }
+}
