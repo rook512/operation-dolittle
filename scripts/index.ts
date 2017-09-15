@@ -63,4 +63,220 @@ function drawBulletP(
   context.fillStyle = "#00FFFF";
   context.fill();
 }
+function drawPlayer(cx: number, cy: number, context: CanvasRenderingContext2D) {
+  context.beginPath();
+  context.moveTo(cx - 5, cy);
+  context.quadraticCurveTo(cx, cy - 25, cx + 5, cy);
+  context.lineTo(cx + 8, cy);
+  context.lineTo(cx + 12, cy - 4);
+  context.lineTo(cx + 10, cy - 14);
+  context.lineTo(cx + 7, cy - 20);
+  context.lineTo(cx + 15, cy - 20);
+  context.lineTo(cx + 20, cy - 10);
+  context.lineTo(cx + 20, cy + 6);
+  context.lineTo(cx + 16, cy + 20);
+  context.lineTo(cx + 12, cy + 20);
+  context.lineTo(cx + 5, cy + 14);
+  context.lineTo(cx + 5, cy + 10);
+  context.lineTo(cx - 5, cy + 10);
+  context.lineTo(cx - 5, cy + 14);
+  context.lineTo(cx - 12, cy + 20);
+  context.lineTo(cx - 16, cy + 20);
+  context.lineTo(cx - 20, cy + 6);
+  context.lineTo(cx - 20, cy - 10);
+  context.lineTo(cx - 15, cy - 20);
+  context.lineTo(cx - 7, cy - 20);
+  context.lineTo(cx - 10, cy - 14);
+  context.lineTo(cx - 12, cy - 4);
+  context.lineTo(cx - 8, cy);
+  context.lineTo(cx - 5, cy);
+  context.closePath();
+  context.fillStyle = "#999999";
+  context.fill();
+  context.strokeStyle = "#000000";
+  context.stroke();
+  context.beginPath();
+  context.moveTo(cx - 3, cy + 4);
+  context.quadraticCurveTo(cx, cy - 24, cx + 3, cy + 4);
+  context.closePath();
+  context.fillStyle = "#000000";
+  context.fill();
+  context.beginPath();
+  context.moveTo(cx, cy - 8);
+  context.quadraticCurveTo(cx + 1.5, cy - 4, cx + 1, cy);
+  context.strokeStyle = "#BBBBBB";
+  context.stroke();
+  context.beginPath();
+  context.moveTo(cx + 2, cy + 18);
+  context.quadraticCurveTo(cx + 5, cy - 7, cx + 9, cy + 18);
+  context.closePath();
+  context.fillStyle = "#656565";
+  context.fill();
+  context.strokeStyle = "#000000";
+  context.stroke();
+  context.beginPath();
+  context.moveTo(cx + 2, cy + 17);
+  context.lineTo(cx + 9, cy + 17);
+  context.strokeStyle = "#FF0000";
+  context.stroke();
+  context.beginPath();
+  context.moveTo(cx + 3, cy + 18);
+  context.lineTo(cx + 8, cy + 18);
+  context.strokeStyle = "#AA0000";
+  context.stroke();
+  context.beginPath();
+  context.moveTo(cx + 3, cy + 19);
+  context.lineTo(cx + 8, cy + 19);
+  context.strokeStyle = "#FF9900";
+  context.stroke();
+  context.moveTo(cx + 4, cy + 17);
+  context.lineTo(cx + 7, cy + 17);
+  context.strokeStyle = "#FF9900";
+  context.stroke();
+  context.beginPath();
+  context.moveTo(cx + 3, cy + 16);
+  context.lineTo(cx + 8, cy + 16);
+  context.strokeStyle = "#000000";
+  context.stroke();
+
+  context.beginPath();
+  context.moveTo(cx - 2, cy + 18);
+  context.quadraticCurveTo(cx - 5, cy - 7, cx - 9, cy + 18);
+  context.closePath();
+  context.fillStyle = "#656565";
+  context.fill();
+  context.strokeStyle = "#000000";
+  context.stroke();
+  context.beginPath();
+  context.moveTo(cx - 2, cy + 17);
+  context.lineTo(cx - 9, cy + 17);
+  context.strokeStyle = "#FF0000";
+  context.stroke();
+  context.beginPath();
+  context.moveTo(cx - 3, cy + 18);
+  context.lineTo(cx - 8, cy + 18);
+  context.strokeStyle = "#AA0000";
+  context.beginPath();
+  context.moveTo(cx - 3, cy + 19);
+  context.lineTo(cx - 8, cy + 19);
+  context.strokeStyle = "#FF9900";
+  context.stroke();
+  context.moveTo(cx - 4, cy + 17);
+  context.lineTo(cx - 7, cy + 17);
+  context.strokeStyle = "#FF9900";
+  context.stroke();
+  context.beginPath();
+  context.moveTo(cx - 3, cy + 16);
+  context.lineTo(cx - 8, cy + 16);
+  context.strokeStyle = "#000000";
+  context.stroke();
+}
+function drawPlayerSimple(
+  cx: number,
+  cy: number,
+  context: CanvasRenderingContext2D
+) {
+  context.beginPath();
+  context.moveTo(cx, cy + 2);
+  context.lineTo(cx + 10, cy - 6);
+  context.lineTo(cx + 8, cy - 14);
+  context.lineTo(cx + 10, cy - 16);
+  context.lineTo(cx + 16, cy + 2);
+  context.lineTo(cx, cy + 16);
+  context.lineTo(cx - 16, cy + 2);
+  context.lineTo(cx - 10, cy - 16);
+  context.lineTo(cx - 8, cy - 14);
+  context.lineTo(cx - 10, cy - 6);
+  context.closePath();
+  context.strokeStyle = "#000000";
+  context.stroke();
+}
+function drawPlayerSimple2(
+  cx: number,
+  cy: number,
+  context: CanvasRenderingContext2D
+) {
+  context.beginPath();
+  context.moveTo(cx + 5, cy + 16);
+  context.quadraticCurveTo(cx + 9, cy - 14, cx + 14, cy + 16);
+  context.quadraticCurveTo(cx + 9, cy + 14, cx + 5, cy + 16);
+  context.quadraticCurveTo(cx + 9, cy + 18, cx + 14, cy + 16);
+  context.fillStyle = "#FFFFFF";
+  context.fill();
+  context.strokeStyle = "#000000";
+  context.stroke();
+  context.beginPath();
+  context.moveTo(cx - 5, cy + 16);
+  context.quadraticCurveTo(cx - 9, cy - 14, cx - 14, cy + 16);
+  context.quadraticCurveTo(cx - 9, cy + 14, cx - 5, cy + 16);
+  context.quadraticCurveTo(cx - 9, cy + 18, cx - 14, cy + 16);
+  context.closePath();
+  context.fillStyle = "#FFFFFF";
+  context.fill();
+  context.strokeStyle = "#000000";
+  context.stroke();
+  context.beginPath();
+  context.moveTo(cx + 4, cy - 1.2);
+  context.lineTo(cx + 10, cy - 6);
+  context.lineTo(cx + 8, cy - 14);
+  context.lineTo(cx + 10, cy - 16);
+  context.lineTo(cx + 16, cy + 2);
+  context.lineTo(cx, cy + 16);
+  context.lineTo(cx - 16, cy + 2);
+  context.lineTo(cx - 10, cy - 16);
+  context.lineTo(cx - 8, cy - 14);
+  context.lineTo(cx - 10, cy - 6);
+  context.lineTo(cx - 4, cy - 1.2);
+  context.quadraticCurveTo(cx, cy - 24, cx + 4, cy - 1.2);
+  context.closePath();
+  context.fillStyle = "#FFFFFF";
+  context.fill();
+  context.strokeStyle = "#000000";
+  context.stroke();
+}
+function drawPlayerSimple3(
+  cx: number,
+  cy: number,
+  context: CanvasRenderingContext2D
+) {
+  // context.beginPath();
+  // context.moveTo(cx + 5, cy + 16);
+  // context.quadraticCurveTo(cx + 9, cy - 14, cx + 14, cy + 16);
+  // context.closePath();
+  //context.fillStyle = "#FFFFFF";
+  //context.fill();
+  //context.strokeStyle = "#000000";
+  //context.stroke();
+  //context.beginPath();
+  //context.moveTo(cx - 5, cy + 16);
+  //context.quadraticCurveTo(cx - 9, cy - 14, cx - 14, cy + 16);
+  //context.closePath();
+  //context.fillStyle = "#FFFFFF";
+  //context.fill();
+  //context.strokeStyle = "#000000";
+  context.stroke();
+  context.beginPath();
+  context.moveTo(cx + 4, cy - 1.2);
+  context.lineTo(cx + 10, cy - 6);
+  context.lineTo(cx + 8, cy - 14);
+  context.lineTo(cx + 10, cy - 16);
+  context.lineTo(cx + 16, cy + 2);
+  context.lineTo(cx, cy + 16);
+  context.lineTo(cx - 16, cy + 2);
+  context.lineTo(cx - 10, cy - 16);
+  context.lineTo(cx - 8, cy - 14);
+  context.lineTo(cx - 10, cy - 6);
+  context.lineTo(cx - 4, cy - 1.2);
+  context.quadraticCurveTo(cx, cy - 24, cx + 4, cy - 1.2);
+  context.closePath();
+  context.fillStyle = "#FFFFFF";
+  context.fill();
+  context.strokeStyle = "#000000";
+  context.stroke();
+}
+
 drawBulletP(400, 300, context);
+drawPlayer(400, 400, context);
+drawPlayerSimple2(200, 400, context);
+drawPlayerSimple(300, 400, context);
+drawPlayerSimple3(500, 400, context);
