@@ -197,20 +197,19 @@ function drawPlayerSimple2(
   context: CanvasRenderingContext2D
 ) {
   context.beginPath();
-  context.moveTo(cx + 5, cy + 16);
-  context.quadraticCurveTo(cx + 9, cy - 14, cx + 14, cy + 16);
-  context.quadraticCurveTo(cx + 9, cy + 14, cx + 5, cy + 16);
-  context.quadraticCurveTo(cx + 9, cy + 18, cx + 14, cy + 16);
+  context.moveTo(cx + 4, cy + 14);
+  context.quadraticCurveTo(cx + 8, cy - 14, cx + 13, cy + 14);
+  context.quadraticCurveTo(cx + 8, cy + 14, cx + 4, cy + 14);
+  context.quadraticCurveTo(cx + 8, cy + 16, cx + 13, cy + 14);
   context.fillStyle = "#FFFFFF";
   context.fill();
   context.strokeStyle = "#000000";
   context.stroke();
   context.beginPath();
-  context.moveTo(cx - 5, cy + 16);
-  context.quadraticCurveTo(cx - 9, cy - 14, cx - 14, cy + 16);
-  context.quadraticCurveTo(cx - 9, cy + 14, cx - 5, cy + 16);
-  context.quadraticCurveTo(cx - 9, cy + 18, cx - 14, cy + 16);
-  context.closePath();
+  context.moveTo(cx - 4, cy + 14);
+  context.quadraticCurveTo(cx - 8, cy - 14, cx - 13, cy + 14);
+  context.quadraticCurveTo(cx - 8, cy + 14, cx - 4, cy + 14);
+  context.quadraticCurveTo(cx - 8, cy + 16, cx - 13, cy + 14);
   context.fillStyle = "#FFFFFF";
   context.fill();
   context.strokeStyle = "#000000";
@@ -239,22 +238,6 @@ function drawPlayerSimple3(
   cy: number,
   context: CanvasRenderingContext2D
 ) {
-  // context.beginPath();
-  // context.moveTo(cx + 5, cy + 16);
-  // context.quadraticCurveTo(cx + 9, cy - 14, cx + 14, cy + 16);
-  // context.closePath();
-  //context.fillStyle = "#FFFFFF";
-  //context.fill();
-  //context.strokeStyle = "#000000";
-  //context.stroke();
-  //context.beginPath();
-  //context.moveTo(cx - 5, cy + 16);
-  //context.quadraticCurveTo(cx - 9, cy - 14, cx - 14, cy + 16);
-  //context.closePath();
-  //context.fillStyle = "#FFFFFF";
-  //context.fill();
-  //context.strokeStyle = "#000000";
-  context.stroke();
   context.beginPath();
   context.moveTo(cx + 4, cy - 1.2);
   context.lineTo(cx + 10, cy - 6);
@@ -274,8 +257,53 @@ function drawPlayerSimple3(
   context.strokeStyle = "#000000";
   context.stroke();
 }
+function drawLaser(cx: number, cy: number, context: CanvasRenderingContext2D) {
+  context.beginPath();
+  context.moveTo(cx + 15, cy + 30);
+  context.lineTo(cx + 15, cy - 30);
+  context.lineTo(cx - 15, cy - 30);
+  context.lineTo(cx - 15, cy + 30);
+  context.closePath();
+  context.strokeStyle = "#660000";
+  context.stroke();
+  context.fillStyle = "#990000";
+  context.fill();
+  context.beginPath();
+  context.moveTo(cx + 12, cy + 30);
+  context.lineTo(cx + 12, cy - 30);
+  context.lineTo(cx - 12, cy - 30);
+  context.lineTo(cx - 12, cy + 30);
+  context.closePath();
+  context.fillStyle = "#DD0000";
+  context.fill();
+  context.beginPath();
+  context.moveTo(cx + 10, cy + 30);
+  context.lineTo(cx + 10, cy - 30);
+  context.lineTo(cx - 10, cy - 30);
+  context.lineTo(cx - 10, cy + 30);
+  context.closePath();
+  context.fillStyle = "#FF0000";
+  context.fill();
+  context.beginPath();
+  context.lineTo(cx + 6, cy + 30);
+  context.lineTo(cx + 6, cy - 30);
+  context.lineTo(cx - 6, cy - 30);
+  context.lineTo(cx - 6, cy + 30);
+  context.closePath();
+  context.fillStyle = "#FF6666";
+  context.fill();
+  context.beginPath();
+  context.moveTo(cx + 3, cy + 30);
+  context.lineTo(cx + 3, cy - 30);
+  context.lineTo(cx - 3, cy - 30);
+  context.lineTo(cx - 3, cy + 30);
+  context.closePath();
+  context.fillStyle = "#FF9999";
+  context.fill();
+}
 
 drawBulletP(400, 300, context);
+drawLaser(300, 300, context);
 drawPlayer(400, 400, context);
 drawPlayerSimple2(200, 400, context);
 drawPlayerSimple(300, 400, context);
