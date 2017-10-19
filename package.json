@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "main": "index.js",
   "scripts": {
-    "start": "webpack --watch",
+    "start": "concurrently \"webpack --watch\" \"cd wwwroot && lite-server\"",
     "build": "webpack",
     "view": "cd wwwroot && lite-server",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -12,6 +12,7 @@
   "author": "Seth DeKrey",
   "license": "MIT",
   "dependencies": {
+    "concurrently": "3.5.0",
     "lite-server": "^2.3.0",
     "ts-loader": "^2.3.7",
     "typescript": "^2.5.2",
