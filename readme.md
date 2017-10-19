@@ -4,10 +4,9 @@ Its a thing that will do a thing
 
 ## Development
 
-To run, run the two following commands in sepparate console windows:
+To run, run the following command in the console:
 
     yarn start
-    yarn view
 
 If its your first time running it, run the following command first:
 
