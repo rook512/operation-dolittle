@@ -33,7 +33,6 @@ function drawEntity(context: CanvasRenderingContext2D, entity: IEntity) {
 const player = new PlayerPawn();
 player.position.location = { x: 200, y: 200 };
 entities.push(player);
-drawEntity(context, player);
 canvas.onmousemove = function(event) {
   player.position.rotation =
     Math.atan2(
@@ -41,5 +40,30 @@ canvas.onmousemove = function(event) {
       event.offsetX - player.position.location.x
     ) +
     Math.PI / 2;
-  drawEntity(context, player);
 };
+window.addEventListener("keydown", doKeyPress, false);
+window.addEventListener("keyup", doKeyRelease, false);
+function doKeyPress(key) {
+  switch (key.keyCode) {
+    case 87:
+      if (player.position.location.y - 1 > 0) {
+        player.position.location.y = player.position.location.y - 5;
+      }
+      break;
+    case 65:
+      if (player.position.location.x - 1 > 0) {
+        player.position.location.x = player.position.location.x - 5;
+      }
+      break;
+    case 83:
+      if (player.position.location.y + 1 < 600) {
+        player.position.location.y = player.position.location.y + 5;
+      }
+      break;
+    case 68:
+      if (player.position.location.x + 1 < 800) {
+        player.position.location.x = player.position.location.x + 5;
+      }
+      break;
+  }
+}
