@@ -1,39 +1,35 @@
-export function drawPlayerBullet(
-  cx: number,
-  cy: number,
-  context: CanvasRenderingContext2D
-) {
+export function drawPlayerBullet(context: CanvasRenderingContext2D) {
   context.beginPath();
-  context.arc(cx, cy, 10, Math.PI, Math.PI * 2);
-  context.moveTo(cx + 10, cy);
-  context.bezierCurveTo(cx + 11, cy + 1, cx + 6, cy + 17, cx + 6, cy + 22);
-  context.quadraticCurveTo(cx, cy + 36, cx - 6, cy + 22);
-  context.bezierCurveTo(cx - 6, cy + 17, cx - 11, cy + 1, cx - 10, cy);
+  context.arc(+0, +0, 10, Math.PI, Math.PI * 2);
+  context.moveTo(+0 + 10, +0);
+  context.bezierCurveTo(+0 + 11, +1, +6, +17, +6, +22);
+  context.quadraticCurveTo(+0, +36, -6, +22);
+  context.bezierCurveTo(-6, +17, -11, +1, -10, +0);
   context.closePath();
   context.fillStyle = "#000099";
   context.fill();
   context.beginPath();
-  context.arc(cx, cy - 2, 8, Math.PI, Math.PI * 2);
-  context.moveTo(cx + 8, cy - 2);
-  context.bezierCurveTo(cx + 10, cy + 1, cx + 6, cy + 11, cx + 2, cy + 15);
-  context.quadraticCurveTo(cx, cy + 27, cx - 2, cy + 15);
-  context.bezierCurveTo(cx - 6, cy + 11, cx - 10, cy + 1, cx - 8, cy - 2);
+  context.arc(+0, -2, 8, Math.PI, Math.PI * 2);
+  context.moveTo(+8, -2);
+  context.bezierCurveTo(+10, +1, +6, +11, +2, +15);
+  context.quadraticCurveTo(+0, +27, -2, +15);
+  context.bezierCurveTo(-6, +11, -10, +1, -8, -2);
   context.closePath();
   context.fillStyle = "#0000FF";
   context.fill();
   context.beginPath();
-  context.arc(cx, cy - 3, 6, Math.PI, Math.PI * 2);
-  context.moveTo(cx + 6, cy - 3);
-  context.bezierCurveTo(cx + 8, cy, cx + 4, cy + 4, cx + 1, cy + 10);
-  context.quadraticCurveTo(cx, cy + 18, cx - 1, cy + 10);
-  context.bezierCurveTo(cx - 4, cy + 4, cx - 8, cy, cx - 6, cy - 3);
+  context.arc(+0, -3, 6, Math.PI, Math.PI * 2);
+  context.moveTo(+6, -3);
+  context.bezierCurveTo(+8, +0, +4, +4, +1, +10);
+  context.quadraticCurveTo(+0, +18, -1, +10);
+  context.bezierCurveTo(-4, +4, -8, +0, -6, -3);
   context.closePath();
   context.fillStyle = "#0099FF";
   context.fill();
   context.beginPath();
-  context.arc(cx, cy - 4, 4, Math.PI, Math.PI * 2);
-  context.moveTo(cx + 4, cy - 4);
-  context.quadraticCurveTo(cx, cy + 14, cx - 4, cy - 4);
+  context.arc(+0, -4, 4, Math.PI, Math.PI * 2);
+  context.moveTo(+4, -4);
+  context.quadraticCurveTo(+0, +14, -4, -4);
   context.closePath();
   context.fillStyle = "#00FFFF";
   context.fill();

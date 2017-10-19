@@ -15,6 +15,7 @@ const height = canvas.height;
 const entities: IEntity[] = [];
 function renderLoop() {
   context!.clearRect(0, 0, width, height);
+  entities.forEach(entity => entity.update());
   entities.forEach(entity => drawEntity(context!, entity));
   window.requestAnimationFrame(renderLoop);
 }
@@ -34,35 +35,30 @@ const player = new PlayerPawn();
 player.position.location = { x: 200, y: 200 };
 entities.push(player);
 canvas.onmousemove = function(event) {
-  player.position.rotation =
-    Math.atan2(
-      event.offsetY - player.position.location.y,
-      event.offsetX - player.position.location.x
-    ) +
-    Math.PI / 2;
+  player.facing = { x: event.offsetX, y: event.offsetY };
 };
 window.addEventListener("keydown", doKeyPress, false);
-window.addEventListener("keyup", doKeyRelease, false);
+//window.addEventListener("keyup", doKeyRelease, false);
 function doKeyPress(key) {
   switch (key.keyCode) {
     case 87:
-      if (player.position.location.y - 1 > 0) {
-        player.position.location.y = player.position.location.y - 5;
+      if (player.inertia.y > -5) {
+        player.inertia.y = player.inertia.y - 0.5;
       }
       break;
     case 65:
-      if (player.position.location.x - 1 > 0) {
-        player.position.location.x = player.position.location.x - 5;
+      if (player.inertia.x > -5) {
+        player.inertia.x = player.inertia.x - 0.5;
       }
       break;
     case 83:
-      if (player.position.location.y + 1 < 600) {
-        player.position.location.y = player.position.location.y + 5;
+      if (player.inertia.y < +5) {
+        player.inertia.y = player.inertia.y + 0.5;
       }
       break;
     case 68:
-      if (player.position.location.x + 1 < 800) {
-        player.position.location.x = player.position.location.x + 5;
+      if (player.inertia.x < +5) {
+        player.inertia.x = player.inertia.x + 0.5;
       }
       break;
   }
