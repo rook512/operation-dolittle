@@ -1,6 +1,7 @@
 //import { drawPlayerBullet } from "./visuals/playerBullet";
 //import { drawLaser } from "./visuals/laser";
-import { PlayerPawn, IEntity } from "./pawns/playerPawn";
+import { PlayerPawn, IEntity, maxSpeed } from "./pawns/playerPawn";
+import Mousetrap = require("mousetrap");
 
 const canvas = document.querySelector("canvas");
 if (canvas === null) {
@@ -37,29 +38,89 @@ entities.push(player);
 canvas.onmousemove = function(event) {
   player.facing = { x: event.offsetX, y: event.offsetY };
 };
-window.addEventListener("keydown", doKeyPress, false);
-//window.addEventListener("keyup", doKeyRelease, false);
-function doKeyPress(key) {
-  switch (key.keyCode) {
-    case 87:
-      if (player.inertia.y > -5) {
-        player.inertia.y = player.inertia.y - 0.5;
-      }
-      break;
-    case 65:
-      if (player.inertia.x > -5) {
-        player.inertia.x = player.inertia.x - 0.5;
-      }
-      break;
-    case 83:
-      if (player.inertia.y < +5) {
-        player.inertia.y = player.inertia.y + 0.5;
-      }
-      break;
-    case 68:
-      if (player.inertia.x < +5) {
-        player.inertia.x = player.inertia.x + 0.5;
-      }
-      break;
-  }
-}
+// window.addEventListener("keydown", doKeyPress, false);
+// //window.addEventListener("keyup", doKeyRelease, false);
+// function doKeyPress(key) {
+//   switch (key.keyCode) {
+//     case 87:
+//       if (player.inertia.y > -5) {
+//         player.inertia.y = player.inertia.y - 0.5;
+//       }
+//       break;
+//     case 65:
+//       if (player.inertia.x > -5) {
+//         player.inertia.x = player.inertia.x - 0.5;
+//       }
+//       break;
+//     case 83:
+//       if (player.inertia.y < +5) {
+//         player.inertia.y = player.inertia.y + 0.5;
+//       }
+//       break;
+//     case 68:
+//       if (player.inertia.x < +5) {
+//         player.inertia.x = player.inertia.x + 0.5;
+//       }
+//       break;
+//   }
+// }
+Mousetrap.bind(
+  "w",
+  () => {
+    player.targetInertia.y = -maxSpeed;
+  },
+  "keydown"
+);
+Mousetrap.bind(
+  "w",
+  () => {
+    player.targetInertia.y =
+      player.targetInertia.y < 0 ? 0 : player.targetInertia.y;
+  },
+  "keyup"
+);
+Mousetrap.bind(
+  "s",
+  () => {
+    player.targetInertia.y = +maxSpeed;
+  },
+  "keydown"
+);
+Mousetrap.bind(
+  "s",
+  () => {
+    player.targetInertia.y =
+      player.targetInertia.y > 0 ? 0 : player.targetInertia.y;
+  },
+  "keyup"
+);
+Mousetrap.bind(
+  "a",
+  () => {
+    player.targetInertia.x = -maxSpeed;
+  },
+  "keydown"
+);
+Mousetrap.bind(
+  "a",
+  () => {
+    player.targetInertia.x =
+      player.targetInertia.x < 0 ? 0 : player.targetInertia.x;
+  },
+  "keyup"
+);
+Mousetrap.bind(
+  "d",
+  () => {
+    player.targetInertia.x = +maxSpeed;
+  },
+  "keydown"
+);
+Mousetrap.bind(
+  "d",
+  () => {
+    player.targetInertia.x =
+      player.targetInertia.x > 0 ? 0 : player.targetInertia.x;
+  },
+  "keyup"
+);
