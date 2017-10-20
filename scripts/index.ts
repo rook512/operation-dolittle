@@ -19,6 +19,9 @@ const entities: IEntity[] = [];
 function renderLoop() {
   context!.clearRect(0, 0, width, height);
   entities.forEach(entity => entity.update());
+  if (isFiring) {
+    playerFire();
+  }
   entities.forEach(entity => drawEntity(context!, entity));
   window.requestAnimationFrame(renderLoop);
 }
@@ -98,7 +101,17 @@ Mousetrap.bind(
   },
   "keyup"
 );
-canvas.addEventListener("mousedown", playerFire);
+let firingCounter = 0;
+let isFiring: boolean = false;
+canvas.addEventListener("mousedown", openFire);
+function openFire() {
+  isFiring = true;
+  firingCounter = 0;
+}
+canvas.addEventListener("mouseup", ceaseFire);
+function ceaseFire() {
+  isFiring = false;
+}
 function playerFire() {
   const playerBullet = new PlayerBulletPawn();
   playerBullet.position.location.x = player.position.location.x;
@@ -106,5 +119,8 @@ function playerFire() {
   playerBullet.position.rotation = player.position.rotation;
   playerBullet.inertia.x = bulletSpeed * Math.sin(player.position.rotation);
   playerBullet.inertia.y = -bulletSpeed * Math.cos(player.position.rotation);
-  entities.push(playerBullet);
+  firingCounter += 1;
+  if (firingCounter % 5 == 0) {
+    entities.push(playerBullet);
+  }
 }
