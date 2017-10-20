@@ -11,6 +11,8 @@ const context = canvas.getContext("2d");
 if (context === null) {
   throw new Error("No context found on page (dummy)");
 }
+canvas.width = canvas.getBoundingClientRect().width;
+canvas.height = canvas.getBoundingClientRect().height;
 const width = canvas.width;
 const height = canvas.height;
 const entities: IEntity[] = [];
