@@ -1,14 +1,7 @@
 import { drawPlayerShip } from "../visuals/playerShip";
+import { EntityPosition } from "../entities/position";
+import { IEntity } from "../entities/entity";
 
-export class EntityPosition {
-  location = { x: 0, y: 0 };
-  rotation = 0;
-}
-export interface IEntity {
-  position: EntityPosition;
-  draw(context: CanvasRenderingContext2D): void;
-  update(): void;
-}
 const mass = 0.9;
 export const maxSpeed = 7;
 export class PlayerPawn implements IEntity {
