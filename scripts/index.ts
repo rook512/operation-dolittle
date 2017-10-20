@@ -1,8 +1,7 @@
-//import { drawPlayerBullet } from "./visuals/playerBullet";
-//import { drawLaser } from "./visuals/laser";
 import { PlayerPawn, maxSpeed } from "./pawns/playerPawn";
 import Mousetrap = require("mousetrap");
 import { IEntity } from "./entities/entity";
+import { PlayerBulletPawn, bulletSpeed } from "./pawns/playerBulletPawn";
 
 const canvas = document.querySelector("canvas");
 if (canvas === null) {
@@ -25,7 +24,6 @@ function renderLoop() {
 }
 window.requestAnimationFrame(renderLoop);
 
-//drawPlayerBullet(400, 300, context);
 function drawEntity(context: CanvasRenderingContext2D, entity: IEntity) {
   context.save();
   context.translate(entity.position.location.x, entity.position.location.y);
@@ -34,7 +32,6 @@ function drawEntity(context: CanvasRenderingContext2D, entity: IEntity) {
   entity.draw(context);
   context.restore();
 }
-//drawLaser(300, 300, context);
 const player = new PlayerPawn();
 player.position.location = { x: 200, y: 200 };
 entities.push(player);
@@ -101,3 +98,13 @@ Mousetrap.bind(
   },
   "keyup"
 );
+canvas.addEventListener("mousedown", playerFire);
+function playerFire() {
+  const playerBullet = new PlayerBulletPawn();
+  playerBullet.position.location.x = player.position.location.x;
+  playerBullet.position.location.y = player.position.location.y;
+  playerBullet.position.rotation = player.position.rotation;
+  playerBullet.inertia.x = bulletSpeed * Math.sin(player.position.rotation);
+  playerBullet.inertia.y = -bulletSpeed * Math.cos(player.position.rotation);
+  entities.push(playerBullet);
+}
